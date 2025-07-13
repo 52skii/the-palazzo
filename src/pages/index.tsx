@@ -1,3 +1,5 @@
+// /src/pages/index.tsx
+
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomerReviews from "@/components/CustomerReviews";
@@ -30,7 +32,7 @@ export default function Home() {
       </main>
 
       {/* About Us */}
-      <section id="about" className="bg-white py-12 px-4 text-center">
+      <section id="about" className="bg-white py-12 px-4 text-center" data-aos="fade-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Us</h2>
           <p className="text-gray-600 text-lg leading-relaxed">
@@ -40,7 +42,7 @@ export default function Home() {
       </section>
 
       {/* Gallery */}
-      <section id="gallery" className="bg-gray-100 py-12 px-4">
+      <section id="gallery" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Gallery</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -63,7 +65,7 @@ export default function Home() {
       </section>
 
       {/* Menus */}
-      <section id="menus" className="bg-white py-12 px-4">
+      <section id="menus" className="bg-white py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Our Menus</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
@@ -87,7 +89,7 @@ export default function Home() {
       </section>
 
       {/* Online Ordering */}
-      <section id="order" className="bg-gray-100 py-12 px-4">
+      <section id="order" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Order Online</h2>
           <p className="text-gray-600 mb-8">
@@ -122,16 +124,32 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="text-sm text-gray-500 mt-6">Delivery & payment options coming soon.</p>
+
+          {/* 💳 Payment Method Simulation */}
+          <div className="mt-8 text-center space-y-4">
+            <h3 className="text-xl font-semibold text-gray-700">Choose Payment Method</h3>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                Pay with Visa
+              </button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+                Pay with Airtel Money
+              </button>
+              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                Pay with TNM Mpamba
+              </button>
+            </div>
+            <p className="text-sm text-gray-500">Payments are simulated for demo purposes only.</p>
+          </div>
         </div>
       </section>
 
       {/* Event Hosting */}
-      <section id="events" className="bg-white py-12 px-4">
+      <section id="events" className="bg-white py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Host Your Events with Us</h2>
           <p className="text-gray-600 mb-8">
-            Whether it&apos;s a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
+            Whether it's a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
@@ -150,13 +168,13 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine&apos;s day dinner&mdash;Let&rsquo;s just say it was an evening full of love, smiles, and laughter.
+            Our first Valentine's day dinner—Let's just say it was an evening full of love, smiles, and laughter.
           </p>
         </div>
       </section>
 
       {/* Reservations */}
-      <section id="reservation" className="bg-gray-100 py-12 px-4">
+      <section id="reservation" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Make a Reservation</h2>
           <p className="text-gray-600 mb-8">
@@ -196,7 +214,7 @@ export default function Home() {
       <EventList />
 
       {/* Customer Reviews */}
-      <section id="reviews">
+      <section id="reviews" data-aos="fade-up">
         <CustomerReviews />
       </section>
 
