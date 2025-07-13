@@ -7,9 +7,13 @@ import LoginForm from "@/components/LoginForm";
 import EventForm from "@/components/EventForm";
 import UpcomingEvents from "@/components/UpcomingEvents";
 import EventList from "@/components/EventList";
+import CartSummary from "@/components/CartSummary";
 import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 export default function Home() {
+  const { addToCart } = useCart();
+
   return (
     <>
       <Navbar />
@@ -118,14 +122,23 @@ export default function Home() {
                 />
                 <h3 className="text-xl font-semibold">{item.name}</h3>
                 <p className="text-gray-600">{item.price}</p>
-                <button className="mt-4 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700">
+                <button
+                  onClick={() =>
+                    addToCart({
+                      name: item.name,
+                      price: Number(item.price.replace(/[^\d]/g, "")),
+                      image: item.src,
+                    })
+                  }
+                  className="mt-4 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700"
+                >
                   Add to Cart
                 </button>
               </div>
             ))}
           </div>
 
-          {/* 💳 Payment Method Simulation */}
+          {/* 💳 Simulated Payment */}
           <div className="mt-8 text-center space-y-4">
             <h3 className="text-xl font-semibold text-gray-700">Choose Payment Method</h3>
             <div className="flex justify-center gap-4 flex-wrap">
@@ -142,6 +155,9 @@ export default function Home() {
             <p className="text-sm text-gray-500">Payments are simulated for demo purposes only.</p>
           </div>
         </div>
+
+        {/* 🛒 Cart Summary */}
+        <CartSummary />
       </section>
 
       {/* Event Hosting */}
