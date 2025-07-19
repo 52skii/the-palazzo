@@ -1,7 +1,6 @@
-// /src/pages/_app.tsx
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -11,6 +10,8 @@ import CartDrawer from '@/components/CartDrawer';
 import CartToggleButton from '@/components/CartToggleButton';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [isCartOpen, setCartOpen] = useState(false);
+
   useEffect(() => {
     AOS.init({ once: true, duration: 800 });
   }, []);
@@ -19,8 +20,8 @@ export default function App({ Component, pageProps }: AppProps) {
     <AuthProvider>
       <CartProvider>
         <Component {...pageProps} />
-        <CartDrawer />
-        <CartToggleButton />
+        <CartDrawer isOpen={isCartOpen} onClose={() => setCartOpen(false)} />
+        <CartToggleButton onClick={() => setCartOpen(true)} />
       </CartProvider>
     </AuthProvider>
   );
