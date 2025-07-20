@@ -17,21 +17,23 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <main id="hero" className="relative h-screen w-full overflow-hidden z-[9999]">
-        <Image
-          src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
-          alt="Hero"
-          fill
-          className="object-cover z-0"
-          priority
-        />
-        <div className="absolute inset-0 bg-black bg-opacity-50 z-10" />
-        <div className="relative z-20 flex items-center justify-center h-full text-center px-4">
+      <section id="hero" className="relative h-screen w-full overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
+            alt="Hero"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-50" />
+        </div>
+        <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
           <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
             Luxury Redefined
           </h1>
         </div>
-      </main>
+      </section>
 
       {/* About Us */}
       <section id="about" className="bg-white py-12 px-4 text-center" data-aos="fade-up">
@@ -100,7 +102,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-6">
             {[
               {
-                name: "Burger &amp; Fries",
+                name: "Burger & Fries",
                 price: "MWK 17,000",
                 src: "https://i.postimg.cc/4xjj9Sy6/60a7c48faae5bd703d73364563226537.webp",
               },
@@ -136,25 +138,18 @@ export default function Home() {
             ))}
           </div>
 
-          {/* 💳 Simulated Payment */}
+          {/* Simulated Payment */}
           <div className="mt-8 text-center space-y-4">
             <h3 className="text-xl font-semibold text-gray-700">Choose Payment Method</h3>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
-                Pay with Visa
-              </button>
-              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
-                Pay with Airtel Money
-              </button>
-              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                Pay with TNM Mpamba
-              </button>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Pay with Visa</button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Pay with Airtel Money</button>
+              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Pay with TNM Mpamba</button>
             </div>
             <p className="text-sm text-gray-500">Payments are simulated for demo purposes only.</p>
           </div>
         </div>
 
-        {/* 🛒 Cart Summary */}
         <CartSummary />
       </section>
 
@@ -182,12 +177,12 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine&apos;s day dinner&mdash;Let&apos;s just say it was an evening full of love, smiles, and laughter.
+            Our first Valentine&apos;s day dinner—an evening full of love, smiles, and laughter.
           </p>
         </div>
       </section>
 
-      {/* Reservations */}
+      {/* Reservation Form */}
       <section id="reservation" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Make a Reservation</h2>
@@ -197,11 +192,11 @@ export default function Home() {
           <form className="space-y-6 text-left">
             <div>
               <label className="block text-gray-700 font-medium mb-2">Full Name</label>
-              <input type="text" placeholder="Your name" className="w-full p-3 border border-gray-300 rounded-lg" />
+              <input type="text" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your name" />
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-2">Email</label>
-              <input type="email" placeholder="your@email.com" className="w-full p-3 border border-gray-300 rounded-lg" />
+              <input type="email" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="your@email.com" />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -215,24 +210,17 @@ export default function Home() {
             </div>
             <div>
               <label className="block text-gray-700 font-medium mb-2">Guests</label>
-              <input type="number" min="1" max="20" placeholder="Number of guests" className="w-full p-3 border border-gray-300 rounded-lg" />
+              <input type="number" min="1" max="20" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Number of guests" />
             </div>
             <button type="submit" className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700">Book Now</button>
           </form>
         </div>
       </section>
 
-      {/* Admin Event Controls */}
       <EventForm />
       <UpcomingEvents />
       <EventList />
-
-      {/* Customer Reviews */}
-      <section id="reviews" data-aos="fade-up">
-        <CustomerReviews />
-      </section>
-
-      {/* Admin Login */}
+      <CustomerReviews />
       <LoginForm />
     </>
   );

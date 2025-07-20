@@ -1,3 +1,13 @@
+/* Reset and Base Styles */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Main Page Layout */
 .page {
   --gray-rgb: 0, 0, 0;
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
@@ -16,6 +26,7 @@
   font-family: var(--font-geist-sans);
 }
 
+/* Dark Mode Overrides */
 @media (prefers-color-scheme: dark) {
   .page {
     --gray-rgb: 255, 255, 255;
@@ -25,8 +36,13 @@
     --button-primary-hover: #ccc;
     --button-secondary-hover: #1a1a1a;
   }
+
+  .logo {
+    filter: invert();
+  }
 }
 
+/* Main Content Section */
 .main {
   display: flex;
   flex-direction: column;
@@ -56,6 +72,7 @@
   font-weight: 600;
 }
 
+/* Call-To-Actions */
 .ctas {
   display: flex;
   gap: 16px;
@@ -92,6 +109,7 @@ a.secondary {
   min-width: 158px;
 }
 
+/* Footer */
 .footer {
   grid-row-start: 3;
   display: flex;
@@ -108,7 +126,7 @@ a.secondary {
   flex-shrink: 0;
 }
 
-/* Enable hover only on non-touch devices */
+/* Hover Styles (only on non-touch devices) */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
@@ -126,6 +144,7 @@ a.secondary {
   }
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
   .page {
     padding: 32px;
@@ -158,11 +177,5 @@ a.secondary {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
   }
 }
