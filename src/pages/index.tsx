@@ -14,6 +14,18 @@ export default function Home() {
 
   return (
     <>
+      {/* Logo at the very top */}
+      <div className="logo-container">
+        <Image
+          src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
+          alt="Logo"
+          width={200}
+          height={80}
+          className="object-contain"
+          priority
+        />
+      </div>
+
       <Navbar />
 
       {/* Hero Section */}
