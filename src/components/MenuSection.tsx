@@ -1,7 +1,7 @@
 // /src/components/MenuSection.tsx
 import Image from 'next/image';
 
-const menuImages = [
+const menuImages: string[] = [
   'https://i.postimg.cc/bNT22m7C/file-000000006ac461f98a58a424deaf2c7e-1.png',
   'https://i.postimg.cc/X7Qpvp5t/file-000000007de861f9ad0f420fd4bb4afc.png',
   'https://i.postimg.cc/XqnYjbYV/file-000000004d2061f98e8cf2d447dc6910.png',
@@ -15,15 +15,16 @@ const MenuSection = () => {
         <h2 className="text-3xl font-bold mb-8 text-gray-800">Our Menu</h2>
 
         <div className="overflow-x-auto">
-          <div className="flex gap-6 flex-nowrap">
+          <div className="flex gap-6 flex-nowrap pb-4">
             {menuImages.map((src, index) => (
               <div key={index} className="flex-shrink-0">
                 <Image
                   src={src}
-                  alt={`Menu ${index + 1}`}
+                  alt={`Menu item ${index + 1}`}
                   width={300}
                   height={400}
-                  className="rounded-lg shadow-lg"
+                  loading="lazy"
+                  className="rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
                 />
               </div>
             ))}

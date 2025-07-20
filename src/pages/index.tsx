@@ -102,7 +102,7 @@ export default function Home() {
           <div className="flex flex-wrap justify-center gap-6">
             {[
               {
-                name: "Burger & Fries",
+                name: "Burger &amp; Fries",
                 price: "MWK 17,000",
                 src: "https://i.postimg.cc/4xjj9Sy6/60a7c48faae5bd703d73364563226537.webp",
               },
@@ -165,7 +165,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Host Your Events with Us</h2>
           <p className="text-gray-600 mb-8">
-            Whether it's a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
+            Whether it&apos;s a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
@@ -184,7 +184,7 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine's day dinner—Let's just say it was an evening full of love, smiles, and laughter.
+            Our first Valentine&apos;s day dinner&mdash;Let&apos;s just say it was an evening full of love, smiles, and laughter.
           </p>
         </div>
       </section>
