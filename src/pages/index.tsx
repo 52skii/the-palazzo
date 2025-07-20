@@ -1,27 +1,24 @@
-import React, { useState } from 'react';
-import Navbar from '@/components/Navbar';
-import CustomerReviews from '@/components/CustomerReviews';
-import LoginForm from '@/components/LoginForm';
-import EventForm from '@/components/EventForm';
-import UpcomingEvents from '@/components/UpcomingEvents';
-import EventList from '@/components/EventList';
-import CartSummary from '@/components/CartSummary';
-import Image from 'next/image';
-import { useCart } from '@/context/CartContext';
-import CartDrawer from '@/components/CartDrawer';
-import CartToggleButton from '@/components/CartToggleButton';
-import Lightbox from '@/components/Lightbox'; // ✅ 1. Import Lightbox
+// /src/pages/index.tsx
+
+import React from "react";
+import Navbar from "@/components/Navbar";
+import CustomerReviews from "@/components/CustomerReviews";
+import LoginForm from "@/components/LoginForm";
+import EventForm from "@/components/EventForm";
+import UpcomingEvents from "@/components/UpcomingEvents";
+import EventList from "@/components/EventList";
+import CartSummary from "@/components/CartSummary";
+import Image from "next/image";
+import { useCart } from "@/context/CartContext";
 
 export default function Home() {
   const { addToCart } = useCart();
-  const [isCartOpen, setCartOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null); // ✅ 2. State for Lightbox
 
   return (
     <>
       <Navbar />
 
-      {/* Hero */}
+      {/* Hero Section */}
       <main id="hero" className="relative h-screen w-full overflow-hidden">
         <Image
           src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
@@ -38,11 +35,13 @@ export default function Home() {
         </div>
       </main>
 
-      {/* About */}
+      {/* About Us */}
       <section id="about" className="bg-white py-12 px-4 text-center" data-aos="fade-up">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Us</h2>
-          <p className="text-gray-600 text-lg">…</p>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            The Palazzo is open! Located in Kabula Hill. We have dishes from different cultures and meals that are full of flavour. Come on over and have the Palazzo experience! We look forward to hosting you!
+          </p>
         </div>
       </section>
 
@@ -50,80 +49,87 @@ export default function Home() {
       <section id="gallery" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Gallery</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
-              'https://i.postimg.cc/0QyG28vc/Our-buffets-Something…jpg',
-              'https://i.postimg.cc/SRwcrCMv/…jpg',
-              'https://i.postimg.cc/PxVWCBrh/…jpg',
-              'https://i.postimg.cc/fWF7Dnrf/…jpg',
-            ].map((src, i) => (
-              <div key={i} className="cursor-pointer" data-aos="zoom-in">
-                <Image
-                  src={src}
-                  alt={`Gallery image ${i + 1}`}
-                  width={300}
-                  height={200}
-                  className="rounded-lg shadow-lg object-cover"
-                  onClick={() => setSelectedImage(src)} // ✅ 3. Open Lightbox on click
-                />
-              </div>
+              "https://i.postimg.cc/vBB0p1WM/fb0ee62cf7b1e30498d2fc47a856a3e3.webp",
+              "https://i.postimg.cc/4xjj9Sy6/60a7c48faae5bd703d73364563226537.webp",
+              "https://i.postimg.cc/0QyG28vc/Our-buffets-Something-we-do-very-often-but-haven-t-shared-enough-Hearty-delicious-dishes-prepar.jpg",
+            ].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={`Gallery ${index + 1}`}
+                width={500}
+                height={300}
+                className="rounded-lg shadow-lg object-cover w-full h-64"
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* ✅ 4. Render Lightbox if active */}
-      {selectedImage && (
-        <Lightbox image={selectedImage} onClose={() => setSelectedImage(null)} />
-      )}
-
-      {/* Menus - updated */}
+      {/* Menus */}
       <section id="menus" className="bg-white py-12 px-4" data-aos="fade-up">
-        <div className="max-w-6xl mx-auto overflow-x-auto scrollbar-hide">
-          <h2 className="text-center text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Menus</h2>
-          <div className="flex gap-4 px-2 w-max">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Our Menus</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             {[
-              'https://i.postimg.cc/bNT22m7C/…-1.png',
-              'https://i.postimg.cc/X7Qpvp5t/…png',
-              'https://i.postimg.cc/XqnYjbYV/…png',
-              'https://i.postimg.cc/wTfjpn8p/…png',
-            ].map((src, i) => (
-              <div key={i} className="flex-none w-64">
-                <Image
-                  src={src}
-                  alt={`Menu ${i + 1}`}
-                  width={256}
-                  height={256}
-                  className="rounded-lg shadow-md object-cover"
-                />
-              </div>
+              "https://i.postimg.cc/bNT22m7C/file-000000006ac461f98a58a424deaf2c7e-1.png",
+              "https://i.postimg.cc/X7Qpvp5t/file-000000007de861f9ad0f420fd4bb4afc.png",
+              "https://i.postimg.cc/XqnYjbYV/file-000000004d2061f98e8cf2d447dc6910.png",
+              "https://i.postimg.cc/wTfjpn8p/file-00000000b03861f99d0c4277ed32f0a8.png",
+            ].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={`Menu ${index + 1}`}
+                width={500}
+                height={500}
+                className="rounded-lg shadow-md w-full h-auto object-cover"
+              />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <UpcomingEvents />
-
-      {/* Order Online */}
+      {/* Online Ordering */}
       <section id="order" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Order Online</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Order Online</h2>
+          <p className="text-gray-600 mb-8">
+            Browse our menu and order your favorite meals for delivery or pickup. Secure payment and delivery integrations coming soon.
+          </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: 'Burger & Fries', price: 'MWK 17,000', src: 'https://i.postimg.cc/4xjj9...' },
-              { name: 'Braii Platter', price: 'MWK 60,000', src: 'https://i.postimg.cc/vBB0p1...' },
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-lg shadow-md w-64">
-                <Image src={item.src} alt={item.name} width={256} height={160} className="rounded-md mb-4" />
+              {
+                name: "Burger & Fries",
+                price: "MWK 17,000",
+                src: "https://i.postimg.cc/4xjj9Sy6/60a7c48faae5bd703d73364563226537.webp",
+              },
+              {
+                name: "Braii Platter",
+                price: "MWK 60,000",
+                src: "https://i.postimg.cc/vBB0p1WM/fb0ee62cf7b1e30498d2fc47a856a3e3.webp",
+              },
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md w-64">
+                <Image
+                  src={item.src}
+                  alt={item.name}
+                  width={256}
+                  height={160}
+                  className="rounded-md mb-4 h-40 w-full object-cover"
+                />
                 <h3 className="text-xl font-semibold">{item.name}</h3>
                 <p className="text-gray-600">{item.price}</p>
                 <button
-                  onClick={() => addToCart({
-                    name: item.name,
-                    price: Number(item.price.replace(/\D/g, '')),
-                    image: item.src,
-                  })}
+                  onClick={() =>
+                    addToCart({
+                      name: item.name,
+                      price: Number(item.price.replace(/[^\d]/g, "")),
+                      image: item.src,
+                    })
+                  }
                   className="mt-4 bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700"
                 >
                   Add to Cart
@@ -132,17 +138,95 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Payment Simulation */}
+          {/* 💳 Simulated Payment */}
           <div className="mt-8 text-center space-y-4">
-            {/* Simulated payment buttons */}
+            <h3 className="text-xl font-semibold text-gray-700">Choose Payment Method</h3>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+                Pay with Visa
+              </button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition">
+                Pay with Airtel Money
+              </button>
+              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
+                Pay with TNM Mpamba
+              </button>
+            </div>
+            <p className="text-sm text-gray-500">Payments are simulated for demo purposes only.</p>
           </div>
+        </div>
 
-          <CartSummary />
+        {/* 🛒 Cart Summary */}
+        <CartSummary />
+      </section>
+
+      {/* Event Hosting */}
+      <section id="events" className="bg-white py-12 px-4" data-aos="fade-up">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Host Your Events with Us</h2>
+          <p className="text-gray-600 mb-8">
+            Whether it's a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {[
+              "https://i.postimg.cc/zXSbysfh/A-birthday-celebration-at-The-Palazzo-We-love-hosting-you-and-have-packages-to-suit-all-your-wishes.jpg",
+              "https://i.postimg.cc/Vv9hQfW4/Our-first-Valentines-day-dinner-Lets-just-say-it-was-an-evening-full-of-love-smiles-and-laughter.jpg",
+              "https://i.postimg.cc/8zz09VJB/Our-first-Valentines-day-dinner-Lets-just-say-it-was-an-evening-full-of-love-smiles-and-laughter.jpg",
+            ].map((src, index) => (
+              <Image
+                key={index}
+                src={src}
+                alt={`Event ${index + 1}`}
+                width={500}
+                height={300}
+                className="rounded-lg shadow-lg object-cover w-full h-64"
+              />
+            ))}
+          </div>
+          <p className="text-sm text-gray-600 mt-4">
+            Our first Valentine's day dinner—Let's just say it was an evening full of love, smiles, and laughter.
+          </p>
         </div>
       </section>
 
-      {/* Admin Sections */}
+      {/* Reservations */}
+      <section id="reservation" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Make a Reservation</h2>
+          <p className="text-gray-600 mb-8">
+            Reserve your table in advance to enjoy a seamless dining experience at The Palazzo.
+          </p>
+          <form className="space-y-6 text-left">
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Full Name</label>
+              <input type="text" placeholder="Your name" className="w-full p-3 border border-gray-300 rounded-lg" />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Email</label>
+              <input type="email" placeholder="your@email.com" className="w-full p-3 border border-gray-300 rounded-lg" />
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">Date</label>
+                <input type="date" className="w-full p-3 border border-gray-300 rounded-lg" />
+              </div>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">Time</label>
+                <input type="time" className="w-full p-3 border border-gray-300 rounded-lg" />
+              </div>
+            </div>
+            <div>
+              <label className="block text-gray-700 font-medium mb-2">Guests</label>
+              <input type="number" min="1" max="20" placeholder="Number of guests" className="w-full p-3 border border-gray-300 rounded-lg" />
+            </div>
+            <button type="submit" className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700">Book Now</button>
+          </form>
+        </div>
+      </section>
+
+      {/* Admin Event Controls */}
       <EventForm />
+      <UpcomingEvents />
       <EventList />
 
       {/* Customer Reviews */}
@@ -150,27 +234,8 @@ export default function Home() {
         <CustomerReviews />
       </section>
 
-      {/* Reservation - new */}
-      <section id="reservation" className="bg-white py-12 px-4" data-aos="fade-up">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-6">Reservations</h2>
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <input type="text" placeholder="Name" className="p-3 border rounded-md" />
-            <input type="email" placeholder="Email" className="p-3 border rounded-md" />
-            <input type="date" className="p-3 border rounded-md md:col-span-2" />
-            <textarea placeholder="Special Requests" className="p-3 border rounded-md md:col-span-2"></textarea>
-            <button type="submit" className="bg-yellow-600 text-white py-3 px-6 rounded-md md:col-span-2">
-              Submit
-            </button>
-          </form>
-        </div>
-      </section>
-
+      {/* Admin Login */}
       <LoginForm />
-
-      {/* Cart Drawer and Toggle */}
-      <CartDrawer isOpen={isCartOpen} onClose={() => setCartOpen(false)} />
-      <CartToggleButton onClick={() => setCartOpen(true)} />
     </>
   );
 }

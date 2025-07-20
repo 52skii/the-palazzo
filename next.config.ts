@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "i.postimg.cc",
-        pathname: "/**", // Allow all image paths from postimg.cc
+        pathname: "/**", // allow all paths under i.postimg.cc
       },
     ],
   },

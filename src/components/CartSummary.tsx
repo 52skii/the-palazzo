@@ -1,81 +1,61 @@
-// /components/CartSummary.tsx
+// /src/components/CartSummary.tsx
+
 import React from "react";
-import Image from "next/image";
 import { useCart } from "@/context/CartContext";
+import Image from "next/image";
 
 const CartSummary = () => {
-  const {
-    cart,
-    removeFromCart,
-    clearCart,
-    increaseQuantity,
-    decreaseQuantity,
-  } = useCart();
+  const { cart, total, increaseQuantity, decreaseQuantity, clearCart } = useCart();
 
-  const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  if (cart.length === 0) return null;
 
   return (
-    <div className="max-w-4xl mx-auto mt-12 bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold mb-4 text-center">🛒 Cart Summary</h2>
-      {cart.length === 0 ? (
-        <p className="text-center text-gray-500">Your cart is empty.</p>
-      ) : (
-        <>
-          <ul className="divide-y divide-gray-200">
-            {cart.map((item, index) => (
-              <li key={index} className="flex items-center justify-between py-4">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={60}
-                    height={60}
-                    className="rounded object-cover"
-                  />
-                  <div>
-                    <p className="font-semibold">{item.name}</p>
-                    <p className="text-gray-500">MWK {item.price.toLocaleString()}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button
-                    onClick={() => decreaseQuantity(index)}
-                    className="px-2 py-1 text-lg bg-gray-200 rounded disabled:opacity-50"
-                    disabled={item.quantity <= 1}
-                  >
-                    −
-                  </button>
-                  <span className="text-lg font-medium">{item.quantity}</span>
-                  <button
-                    onClick={() => increaseQuantity(index)}
-                    className="px-2 py-1 text-lg bg-gray-200 rounded"
-                  >
-                    +
-                  </button>
-                </div>
-
+    <div className="mt-10 bg-white p-6 rounded-lg shadow-md">
+      <h3 className="text-xl font-semibold mb-4 text-gray-800">🛒 Your Cart</h3>
+      <ul className="space-y-4">
+        {cart.map((item, index) => (
+          <li key={index} className="flex items-center gap-4">
+            <Image
+              src={item.image}
+              alt={item.name}
+              width={60}
+              height={60}
+              className="rounded-md"
+            />
+            <div className="flex-1">
+              <p className="font-semibold">{item.name}</p>
+              <p className="text-sm text-gray-500">MWK {item.price.toLocaleString()}</p>
+              <div className="flex items-center gap-2 mt-1">
                 <button
-                  onClick={() => removeFromCart(index)}
-                  className="text-red-600 hover:text-red-800 text-sm ml-4"
+                  className="bg-gray-300 px-2 rounded"
+                  onClick={() => decreaseQuantity(item.name)}
                 >
-                  Remove
+                  −
                 </button>
-              </li>
-            ))}
-          </ul>
-
-          <div className="mt-6 text-right">
-            <p className="text-xl font-semibold">Total: MWK {total.toLocaleString()}</p>
-            <button
-              onClick={clearCart}
-              className="mt-4 bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-            >
-              Clear Cart
-            </button>
-          </div>
-        </>
-      )}
+                <span>{item.quantity}</span>
+                <button
+                  className="bg-gray-300 px-2 rounded"
+                  onClick={() => increaseQuantity(item.name)}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <p className="text-right font-medium text-gray-700">
+              MWK {(item.price * item.quantity).toLocaleString()}
+            </p>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6 text-right">
+        <p className="text-lg font-bold text-gray-800">Total: MWK {total.toLocaleString()}</p>
+        <button
+          onClick={clearCart}
+          className="mt-2 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+        >
+          Clear Cart
+        </button>
+      </div>
     </div>
   );
 };
