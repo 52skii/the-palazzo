@@ -1,26 +1,18 @@
-/* Logo container at the very top */
-.logo-container {
+.heroLogoSection {
   width: 100%;
-  background-color: white;
-  padding: 16px 0;
+  height: 100vh;
+  background-color: black;
   display: flex;
+  align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 2rem;
+  box-sizing: border-box;
 }
 
-/* Make sure the logo image scales nicely */
-.logo-container img {
-  max-height: 80px;
-  width: auto;
-}
-
-/* You can override dark mode if needed to keep logo visible */
-@media (prefers-color-scheme: dark) {
-  .logo-container {
-    background-color: #111; /* darker bg in dark mode */
-    box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
-  }
+.heroLogoImage {
+  width: 90vmin;
+  height: 90vmin;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }

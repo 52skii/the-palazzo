@@ -14,48 +14,62 @@ export default function Home() {
 
   return (
     <>
-      {/* Logo at the very top */}
-      <div className="logo-container">
+      {/* Big Logo Banner at the very top, square-ish and large */}
+      <section
+        id="logo-banner"
+        className="relative w-full max-w-6xl mx-auto aspect-square mb-12"
+      >
         <Image
           src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
-          alt="Logo"
-          width={200}
-          height={80}
-          className="object-contain"
+          alt="The Palazzo Logo Banner"
+          fill
+          className="object-cover rounded-md shadow-lg"
           priority
         />
-      </div>
+        {/* Optional overlay for better text contrast if needed */}
+        {/* <div className="absolute inset-0 bg-black bg-opacity-20 rounded-md" /> */}
+      </section>
 
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section - Text only, below the big logo banner */}
       <section
         id="hero"
-        className="h-screen w-full flex items-center justify-center bg-cover bg-center relative"
-        style={{
-          backgroundImage: "url('https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg')",
-        }}
+        className="w-full flex items-center justify-center py-16 bg-black bg-opacity-80 text-center"
       >
-        <div className="absolute inset-0 bg-black bg-opacity-50" />
-        <h1 className="relative z-10 text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
+        <h1 className="text-white text-5xl md:text-7xl font-bold drop-shadow-lg">
           Luxury Redefined
         </h1>
       </section>
 
       {/* About Us */}
-      <section id="about" className="bg-white py-12 px-4 text-center" data-aos="fade-up">
+      <section
+        id="about"
+        className="bg-white py-12 px-4 text-center"
+        data-aos="fade-up"
+      >
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            About Us
+          </h2>
           <p className="text-gray-600 text-lg leading-relaxed">
-            The Palazzo is open! Located in Kabula Hill. We have dishes from different cultures and meals that are full of flavour. Come on over and have the Palazzo experience! We look forward to hosting you!
+            The Palazzo is open! Located in Kabula Hill. We have dishes from
+            different cultures and meals that are full of flavour. Come on over
+            and have the Palazzo experience! We look forward to hosting you!
           </p>
         </div>
       </section>
 
       {/* Gallery */}
-      <section id="gallery" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
+      <section
+        id="gallery"
+        className="bg-gray-100 py-12 px-4"
+        data-aos="fade-up"
+      >
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Gallery</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">
+            Gallery
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
               "https://i.postimg.cc/vBB0p1WM/fb0ee62cf7b1e30498d2fc47a856a3e3.webp",
@@ -76,9 +90,15 @@ export default function Home() {
       </section>
 
       {/* Menus */}
-      <section id="menus" className="bg-white py-12 px-4" data-aos="fade-up">
+      <section
+        id="menus"
+        className="bg-white py-12 px-4"
+        data-aos="fade-up"
+      >
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">Our Menus</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">
+            Our Menus
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
             {[
               "https://i.postimg.cc/bNT22m7C/file-000000006ac461f98a58a424deaf2c7e-1.png",
@@ -100,11 +120,18 @@ export default function Home() {
       </section>
 
       {/* Online Ordering */}
-      <section id="order" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
+      <section
+        id="order"
+        className="bg-gray-100 py-12 px-4"
+        data-aos="fade-up"
+      >
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Order Online</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+            Order Online
+          </h2>
           <p className="text-gray-600 mb-8">
-            Browse our menu and order your favorite meals for delivery or pickup. Secure payment and delivery integrations coming soon.
+            Browse our menu and order your favorite meals for delivery or
+            pickup. Secure payment and delivery integrations coming soon.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             {[
@@ -119,7 +146,10 @@ export default function Home() {
                 src: "https://i.postimg.cc/vBB0p1WM/fb0ee62cf7b1e30498d2fc47a856a3e3.webp",
               },
             ].map((item, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md w-64">
+              <div
+                key={index}
+                className="bg-white p-6 rounded-lg shadow-md w-64"
+              >
                 <Image
                   src={item.src}
                   alt={item.name}
@@ -147,13 +177,23 @@ export default function Home() {
 
           {/* Simulated Payment */}
           <div className="mt-8 text-center space-y-4">
-            <h3 className="text-xl font-semibold text-gray-700">Choose Payment Method</h3>
+            <h3 className="text-xl font-semibold text-gray-700">
+              Choose Payment Method
+            </h3>
             <div className="flex justify-center gap-4 flex-wrap">
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Pay with Visa</button>
-              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">Pay with Airtel Money</button>
-              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Pay with TNM Mpamba</button>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Pay with Visa
+              </button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700">
+                Pay with Airtel Money
+              </button>
+              <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                Pay with TNM Mpamba
+              </button>
             </div>
-            <p className="text-sm text-gray-500">Payments are simulated for demo purposes only.</p>
+            <p className="text-sm text-gray-500">
+              Payments are simulated for demo purposes only.
+            </p>
           </div>
         </div>
 
@@ -161,11 +201,18 @@ export default function Home() {
       </section>
 
       {/* Event Hosting */}
-      <section id="events" className="bg-white py-12 px-4" data-aos="fade-up">
+      <section
+        id="events"
+        className="bg-white py-12 px-4"
+        data-aos="fade-up"
+      >
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Host Your Events with Us</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+            Host Your Events with Us
+          </h2>
           <p className="text-gray-600 mb-8">
-            Whether it&apos;s a birthday, wedding, or corporate event, The Palazzo is the perfect venue to make your moments unforgettable.
+            Whether it&apos;s a birthday, wedding, or corporate event, The
+            Palazzo is the perfect venue to make your moments unforgettable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
@@ -184,42 +231,85 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine&apos;s day dinner—an evening full of love, smiles, and laughter.
+            Our first Valentine&apos;s day dinner—an evening full of love,
+            smiles, and laughter.
           </p>
         </div>
       </section>
 
       {/* Reservation Form */}
-      <section id="reservation" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
+      <section
+        id="reservation"
+        className="bg-gray-100 py-12 px-4"
+        data-aos="fade-up"
+      >
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Make a Reservation</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+            Make a Reservation
+          </h2>
           <p className="text-gray-600 mb-8">
-            Reserve your table in advance to enjoy a seamless dining experience at The Palazzo.
+            Reserve your table in advance to enjoy a seamless dining experience
+            at The Palazzo.
           </p>
           <form className="space-y-6 text-left">
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Full Name</label>
-              <input type="text" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Your name" />
+              <label className="block text-gray-700 font-medium mb-2">
+                Full Name
+              </label>
+              <input
+                type="text"
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                placeholder="Your name"
+              />
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Email</label>
-              <input type="email" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="your@email.com" />
+              <label className="block text-gray-700 font-medium mb-2">
+                Email
+              </label>
+              <input
+                type="email"
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                placeholder="your@email.com"
+              />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Date</label>
-                <input type="date" className="w-full p-3 border border-gray-300 rounded-lg" />
+                <label className="block text-gray-700 font-medium mb-2">
+                  Date
+                </label>
+                <input
+                  type="date"
+                  className="w-full p-3 border border-gray-300 rounded-lg"
+                />
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Time</label>
-                <input type="time" className="w-full p-3 border border-gray-300 rounded-lg" />
+                <label className="block text-gray-700 font-medium mb-2">
+                  Time
+                </label>
+                <input
+                  type="time"
+                  className="w-full p-3 border border-gray-300 rounded-lg"
+                />
               </div>
             </div>
             <div>
-              <label className="block text-gray-700 font-medium mb-2">Guests</label>
-              <input type="number" min="1" max="20" className="w-full p-3 border border-gray-300 rounded-lg" placeholder="Number of guests" />
+              <label className="block text-gray-700 font-medium mb-2">
+                Guests
+              </label>
+              <input
+                type="number"
+                min="1"
+                max="20"
+                className="w-full p-3 border border-gray-300 rounded-lg"
+                placeholder="Number of guests"
+              />
             </div>
-            <button type="submit" className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700">Book Now</button>
+            <button
+              type="submit"
+              className="w-full bg-yellow-600 text-white py-3 px-6 rounded-lg hover:bg-yellow-700"
+            >
+              Book Now
+            </button>
           </form>
         </div>
       </section>
