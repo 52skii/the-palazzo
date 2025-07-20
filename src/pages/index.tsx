@@ -17,22 +17,17 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero" className="relative h-screen w-full overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
-            alt="Hero"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        <div className="relative z-10 flex items-center justify-center h-full text-center px-4">
-          <h1 className="text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
-            Luxury Redefined
-          </h1>
-        </div>
+      <section
+        id="hero"
+        className="h-screen w-full flex items-center justify-center bg-cover bg-center relative"
+        style={{
+          backgroundImage: "url('https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50" />
+        <h1 className="relative z-10 text-white text-4xl md:text-6xl font-bold drop-shadow-lg">
+          Luxury Redefined
+        </h1>
       </section>
 
       {/* About Us */}
