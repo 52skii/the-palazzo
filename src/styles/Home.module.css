@@ -1,18 +1,20 @@
 .heroLogoSection {
   width: 100%;
-  height: 100vh;
-  background-color: black;
+  min-height: 100vh;
+  background-color: #000; /* Or your preferred background */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  box-sizing: border-box;
+  padding: 40px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .heroLogoImage {
-  width: 90vmin;
-  height: 90vmin;
-  object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  width: 80vw;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }

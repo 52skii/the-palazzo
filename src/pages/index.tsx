@@ -14,25 +14,27 @@ export default function Home() {
 
   return (
     <>
-      {/* Big Logo Banner at the very top, square-ish and large */}
+      {/* Fullscreen Logo Banner */}
       <section
         id="logo-banner"
-        className="relative w-full max-w-6xl mx-auto aspect-square mb-12"
+        className="w-full h-screen flex items-center justify-center bg-black"
+        data-aos="fade-in"
       >
-        <Image
-          src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
-          alt="The Palazzo Logo Banner"
-          fill
-          className="object-cover rounded-md shadow-lg"
-          priority
-        />
-        {/* Optional overlay for better text contrast if needed */}
-        {/* <div className="absolute inset-0 bg-black bg-opacity-20 rounded-md" /> */}
+        <div className="w-full max-w-5xl px-4">
+          <Image
+            src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
+            alt="The Palazzo Logo Banner"
+            width={1200}
+            height={1200}
+            className="w-full h-auto object-cover rounded-xl shadow-xl"
+            priority
+          />
+        </div>
       </section>
 
       <Navbar />
 
-      {/* Hero Section - Text only, below the big logo banner */}
+      {/* Hero Section */}
       <section
         id="hero"
         className="w-full flex items-center justify-center py-16 bg-black bg-opacity-80 text-center"
@@ -90,11 +92,7 @@ export default function Home() {
       </section>
 
       {/* Menus */}
-      <section
-        id="menus"
-        className="bg-white py-12 px-4"
-        data-aos="fade-up"
-      >
+      <section id="menus" className="bg-white py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-10 text-gray-800">
             Our Menus
@@ -119,12 +117,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Online Ordering */}
-      <section
-        id="order"
-        className="bg-gray-100 py-12 px-4"
-        data-aos="fade-up"
-      >
+      {/* Order Online */}
+      <section id="order" className="bg-gray-100 py-12 px-4" data-aos="fade-up">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
             Order Online
@@ -175,7 +169,7 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Simulated Payment */}
+          {/* Payment */}
           <div className="mt-8 text-center space-y-4">
             <h3 className="text-xl font-semibold text-gray-700">
               Choose Payment Method
@@ -200,19 +194,15 @@ export default function Home() {
         <CartSummary />
       </section>
 
-      {/* Event Hosting */}
-      <section
-        id="events"
-        className="bg-white py-12 px-4"
-        data-aos="fade-up"
-      >
+      {/* Events */}
+      <section id="events" className="bg-white py-12 px-4" data-aos="fade-up">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">
             Host Your Events with Us
           </h2>
           <p className="text-gray-600 mb-8">
-            Whether it&apos;s a birthday, wedding, or corporate event, The
-            Palazzo is the perfect venue to make your moments unforgettable.
+            Whether it's a birthday, wedding, or corporate event, The Palazzo is
+            the perfect venue to make your moments unforgettable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {[
@@ -231,13 +221,13 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine&apos;s day dinner—an evening full of love,
-            smiles, and laughter.
+            Our first Valentine's day dinner—an evening full of love, smiles,
+            and laughter.
           </p>
         </div>
       </section>
 
-      {/* Reservation Form */}
+      {/* Reservation */}
       <section
         id="reservation"
         className="bg-gray-100 py-12 px-4"
