@@ -201,7 +201,7 @@ export default function Home() {
             Host Your Events with Us
           </h2>
           <p className="text-gray-600 mb-8">
-            Whether it's a birthday, wedding, or corporate event, The Palazzo is
+            Whether it&apos;s a birthday, wedding, or corporate event, The Palazzo is
             the perfect venue to make your moments unforgettable.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -221,7 +221,7 @@ export default function Home() {
             ))}
           </div>
           <p className="text-sm text-gray-600 mt-4">
-            Our first Valentine's day dinner—an evening full of love, smiles,
+            Our first Valentine&apos;s day dinner—an evening full of love, smiles,
             and laughter.
           </p>
         </div>
