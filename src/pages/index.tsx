@@ -1,5 +1,3 @@
-// /src/pages/index.tsx
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import CustomerReviews from "@/components/CustomerReviews";
@@ -19,7 +17,7 @@ export default function Home() {
       <Navbar />
 
       {/* Hero Section */}
-      <main id="hero" className="relative h-screen w-full overflow-hidden">
+      <main id="hero" className="relative h-screen w-full overflow-hidden z-[9999]">
         <Image
           src="https://i.postimg.cc/QCfmsHv8/Coming-June-2024-JPG.jpg"
           alt="Hero"
